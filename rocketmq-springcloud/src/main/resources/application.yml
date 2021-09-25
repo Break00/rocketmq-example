@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    # 通用配置
+    stream:
+      # RocketMQ定制化配置 (发送消息的超时时间、消息体压缩阈值、发送失败重试次数等)
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      bindings:
+        input:
+          destination: TestTopic
+          group: ProducerGroup
+        output:
+          destination: TestTopic
